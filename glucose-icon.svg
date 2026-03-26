@@ -1,0 +1,66 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Definice gradientu pro hlubokou červenou jako krev -->
+  <defs>
+    <linearGradient id="bloodGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#cc0000;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="glowGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ff6666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#990000;stop-opacity:1" />
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Pozadí -->
+  <circle cx="100" cy="100" r="95" fill="white" stroke="#ddd" stroke-width="2"/>
+
+  <!-- Hlavní srdce s gradientem -->
+  <path d="M 100 165 C 60 135, 35 110, 35 85 C 35 65, 50 50, 65 50 C 78 50, 90 60, 100 70 C 110 60, 122 50, 135 50 C 150 50, 165 65, 165 85 C 165 110, 140 135, 100 165 Z"
+        fill="url(#bloodGradient)"
+        stroke="#800000"
+        stroke-width="2"
+        filter="url(#shadow)"/>
+
+  <!-- Lesklý efekt na srdci -->
+  <ellipse cx="70" cy="75" rx="18" ry="20" fill="white" opacity="0.25"/>
+
+  <!-- Glukózová molekula uprostřed srdce -->
+  <g transform="translate(100, 100)">
+    <!-- Hexagonální struktura glukózy -->
+    <circle cx="0" cy="0" r="20" fill="none" stroke="#ffe6e6" stroke-width="2" opacity="0.6"/>
+
+    <!-- Šestistranný tvar glukózy -->
+    <polygon points="0,-18 16,-9 16,9 0,18 -16,9 -16,-9"
+             fill="none"
+             stroke="#ffd6d6"
+             stroke-width="2.5"
+             opacity="0.8"/>
+
+    <!-- Atomy v molekule glukózy -->
+    <circle cx="0" cy="-12" r="3" fill="#ffb3b3"/>
+    <circle cx="10" cy="-6" r="3" fill="#ffb3b3"/>
+    <circle cx="10" cy="6" r="3" fill="#ffb3b3"/>
+    <circle cx="0" cy="12" r="3" fill="#ffb3b3"/>
+    <circle cx="-10" cy="6" r="3" fill="#ffb3b3"/>
+    <circle cx="-10" cy="-6" r="3" fill="#ffb3b3"/>
+
+    <!-- Středový atom -->
+    <circle cx="0" cy="0" r="2.5" fill="#ff8888"/>
+  </g>
+
+  <!-- Dekorativní efekt - malá srdíčka kolem -->
+  <g opacity="0.5">
+    <path d="M 155 50 L 158 55 L 163 55 L 159 59 L 160 64 L 155 60 L 150 64 L 151 59 L 147 55 L 152 55 Z" fill="#cc0000"/>
+    <path d="M 45 50 L 48 55 L 53 55 L 49 59 L 50 64 L 45 60 L 40 64 L 41 59 L 37 55 L 42 55 Z" fill="#cc0000"/>
+  </g>
+</svg>
